@@ -9,9 +9,14 @@
 
     <name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+    </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>home.timjoo.App</start-class>
         <java.version>1.8</java.version>
         <lombok.version>1.14.8</lombok.version>
         <log4j.version>2.10.0</log4j.version>
@@ -19,6 +24,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>            
+        </dependency>        
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
@@ -45,6 +54,10 @@
         <finalName>messages</finalName>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -64,7 +77,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
         </plugins>
     </build>
 
