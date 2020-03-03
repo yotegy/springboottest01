@@ -9,6 +9,7 @@ public class MessageService{
     @Autowired
     private MessageRepository repository;
 
+    @SecurityCheck
     public Message save(String msg){
         return repository.saveMessage(new Message(msg));
     }
