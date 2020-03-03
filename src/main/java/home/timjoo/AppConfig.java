@@ -1,28 +1,32 @@
 package home.timjoo;
 
 import java.util.Arrays;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import javax.sql.DataSource;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 
 @Configuration
 @ComponentScan("home.timjoo")
 public class AppConfig {
     
-    // @Bean
-    // public MessageRepository messageRepository() {
-    //     return new MessageRepository();
-    // }
+    private DataSource dataSource;
 
-    // @Bean
-    // public MessageService messageService() {
-    //     return new MessageService(messageRepository());
-    // }
+    public AppConfig(DataSource dataSource){
+        this.dataSource = dataSource;
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory(){
+        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+        sessionFactoryBean.setDataSource(dataSource);
+        sessionFactoryBean.setPackagesToScan("home.timjoo");
+        return sessionFactoryBean;        
+    }
 
     @Bean
     public FilterRegistrationBean<AuditingFilter> auditingFilterRegistrationBean(){
