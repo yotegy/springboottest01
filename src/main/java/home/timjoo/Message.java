@@ -1,7 +1,24 @@
 package home.timjoo;
 
-public class Message{
+import java.util.Date;
+
+public class Message {
+    private Integer id;
     private String text;
-    public Message(String text){this.text = text;}
+    private Date created_date; 
+
+    public Message(String text){
+        this.text = text;
+        this.created_date = new Date();
+    }
+
+    public Message(int id, String text, Date createdDate){
+        this.id =id;
+        this.text = text;
+        this.created_date = createdDate;
+    }
+
+    public Integer getId(){return id;}
     public String getText(){ return text;}
+    public Date getCreatedDate(){ return created_date;}
 }
