@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <lombok.version>1.14.8</lombok.version>
-        <log4j.version>2.10.0</log4j.version>
+        <log4j.version>2.15.0</log4j.version>
         <rest.assured.version>2.3.3</rest.assured.version>
     </properties>
 
